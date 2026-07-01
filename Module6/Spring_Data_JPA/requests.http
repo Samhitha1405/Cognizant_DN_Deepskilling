@@ -1,0 +1,33 @@
+### Get all authors
+GET http://localhost:8080/api/authors
+
+### Create an author
+POST http://localhost:8080/api/authors
+Content-Type: application/json
+
+{
+  "name": "J.K. Rowling"
+}
+
+### Get all books
+GET http://localhost:8080/api/books
+
+### Create a book (use the id returned from the author POST above)
+POST http://localhost:8080/api/books
+Content-Type: application/json
+
+{
+  "title": "Harry Potter",
+  "isbn": "9780747532699",
+  "publicationYear": 1997,
+  "author": { "id": 1 }
+}
+
+### Search books by title
+GET http://localhost:8080/api/books/search/by-title?title=Harry Potter
+
+### Search books by author name
+GET http://localhost:8080/api/books/search/by-author?name=Rowling
+
+### Search books published after a year
+GET http://localhost:8080/api/books/search/after-year?year=1990
