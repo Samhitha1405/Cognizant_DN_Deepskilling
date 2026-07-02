@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Departments -->
+    <bean id="eng" class="com.cognizant.springlearn.Department">
+        <property name="code" value="ENG" />
+        <property name="name" value="Engineering" />
+    </bean>
+    <bean id="hr" class="com.cognizant.springlearn.Department">
+        <property name="code" value="HR" />
+        <property name="name" value="Human Resources" />
+    </bean>
+
+    <bean id="departmentList" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="eng"/>
+                <ref bean="hr"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <!-- Employees -->
+    <bean id="emp1" class="com.cognizant.springlearn.Employee">
+        <property name="id" value="E001" />
+        <property name="firstName" value="Rahul" />
+        <property name="lastName" value="Sharma" />
+        <property name="department" ref="eng" />
+    </bean>
+    <bean id="emp2" class="com.cognizant.springlearn.Employee">
+        <property name="id" value="E002" />
+        <property name="firstName" value="Priya" />
+        <property name="lastName" value="Nair" />
+        <property name="department" ref="eng" />
+    </bean>
+    <bean id="emp3" class="com.cognizant.springlearn.Employee">
+        <property name="id" value="E003" />
+        <property name="firstName" value="Arjun" />
+        <property name="lastName" value="Verma" />
+        <property name="department" ref="hr" />
+    </bean>
+    <bean id="emp4" class="com.cognizant.springlearn.Employee">
+        <property name="id" value="E004" />
+        <property name="firstName" value="Sneha" />
+        <property name="lastName" value="Iyer" />
+        <property name="department" ref="hr" />
+    </bean>
+
+    <bean id="employeeList" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="emp1"/>
+                <ref bean="emp2"/>
+                <ref bean="emp3"/>
+                <ref bean="emp4"/>
+            </list>
+        </constructor-arg>
+    </bean>
+</beans>
